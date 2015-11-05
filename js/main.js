@@ -43,8 +43,42 @@ for(var i=0;i<divs.length;i++)
     divs[i].innerHTML=array[i];
 }
 
+function checkCardFlag()
+    {
+    if(cardWaiting == false)
+        {
+            cardWaiting = true;
+        }
+    else{
+            cardWaiting = false;
+        }
+            
+    return cardWaiting;
+    }
 
+function checkCardValues()
+    {
+     value1 = firstCard.text();
+//        alert(value1);
+     value2 = secondCard.text();
+//        alert(value2);
+        if(value1 == value2)
+        {
+//            alert("Perfect Match");
+            value1 = 0;
+            value2 = 0;
+            firstCard = null;
+            secondCard = null;
+        }else{
+            alert("Ooops! Wrong card. Try Again!!");
+            firstCard.parent().removeClass("flipped");
+            secondCard.parent().removeClass("flipped");
+            firstCard.parent().css('pointer-events: none;');
+            secondCard.parent().css('pointer-events: none;');
+        }
+            
 
+    }
     
 
     
