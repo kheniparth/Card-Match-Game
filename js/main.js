@@ -7,7 +7,30 @@ var cardWaiting = false;
 var playerWon = false;
 
 $(document).ready(function(){
-    
+    $(".flip").click(function(){
+        if($(this).find(".card").hasClass("flipped"))
+        {
+             alert("Chose Other Card");
+        }else{
+            $(this).find(".card").toggleClass("flipped");    
+            checkCardFlag();
+            if(cardWaiting==true)
+            {
+                firstCard = $(this).find(".back");
+//                alert("Pick One more card");
+            }else{
+                secondCard = $(this).find(".back");
+            }
+
+            if(firstCard != null && secondCard != null && cardWaiting == false){
+                checkCardValues();
+            }
+        }
+        checkWin();
+       
+        return false;
+        });
+        
 var array = [1,4,3,2,
              4,2,3,1,
              1,2,3,4,
