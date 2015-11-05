@@ -80,7 +80,28 @@ function checkCardValues()
 
     }
     
-
+function checkWin()
+    {
+        var count = 0;
+        var cards = document.getElementsByName("card");
+        for(var i=0;i<cards.length;i++)
+        {
+            if($(cards[i]).hasClass("flipped"))
+            {
+                count++;
+            }
+        }
+        if(count >=16)
+        {
+            playerWon = true;
+            var answer = confirm("Hurrraaayyy You won the Game. Do you want to play again? Or Select Cancle to close the Window");
+            if (answer == true) {
+                    location.reload();
+            } else {
+                window.close();
+            }
+        }
+    }
     
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
